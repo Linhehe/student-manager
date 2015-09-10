@@ -24,6 +24,7 @@
 </body>
 </html>
 
+<!--数据导入-->
 <script type="text/ng-template" id="/ImportData.html">
   <div class="page-header">
     <h1>ImportData Page</h1>
@@ -32,14 +33,30 @@
   <!-- rest of template -->
 </script>
 
+<!--学生签到-->
 <script type="text/ng-template" id="/SignIn.html">
   <div class="page-header">
     <h1>SignIn Page</h1>
   </div>
-
-  <!-- rest of template -->
+  <div style="width: 100%;">
+    <table style="width: 100%;">
+      <tr>
+        <th>学生姓名</th>
+        <th>课程名称</th>
+        <th>签到时间</th>
+        <th>签到地点</th>
+      </tr>
+      <tr ng-repeat="signin in signins | orderBy : 'Date':true">
+        <td>{{signin.Student.Name}}</td>
+        <td>{{signin.Subject.SubjectName}}</td>
+        <td>{{signin.Date | date : 'yyyy/MM/dd hh:mm:ss'}}</td>
+        <td>{{signin.Address}}</td>
+      </tr>
+    </table>
+  </div>
 </script>
 
+<!--学生请假-->
 <script type="text/ng-template" id="/Vacation.html">
   <div class="page-header">
     <h1>Vacation Page</h1>
@@ -51,18 +68,22 @@
         <th>请假时间</th>
         <th>请假原因</th>
         <th>申请时间</th>
-        <th></th>
+        <th>审核状态</th>
       </tr>
       <tr ng-repeat="vacation in vacations | orderBy : 'VacationTime':true">
         <td>{{vacation.Student.Name}}</td>
         <td>{{vacation.BeginDate | date : 'yyyy/MM/dd'}}-{{vacation.EndDate | date : 'yyyy/MM/dd'}}</td>
         <td>{{vacation.Reason}}</td>
         <td>{{vacation.VacationTime | date : 'yyyy/MM/dd hh-mm-ss'}}</td>
+        <td ng-show="vacation.Status == 1">通过</td>
+        <td ng-show="vacation.Status == 0">驳回</td>
+        <td ng-show="vacation.Status == -1">审核中</td>
       </tr>
     </table>
   </div>
 </script>
 
+<!--教师调课-->
 <script type="text/ng-template" id="/TransferCourses.html">
   <div class="page-header">
     <h1>TransferCourses Page</h1>

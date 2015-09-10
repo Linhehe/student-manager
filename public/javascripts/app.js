@@ -63,8 +63,18 @@ app.controller('MainCtrl', [
     ])
     .controller('SignInCtrl', [
         '$scope',
-        function($scope){
+        '$http',
+        function($scope,$http){
             //
+            $http.get('http://localhost:3000/getSignInInformation', {params:{}})
+                .success(function(data){
+                    //
+                    $scope.signins = data;
+                }).error(function(err){
+                    //
+                }).then(function(){
+                    //
+                });
         }
     ])
     .controller('VacationCtrl', [

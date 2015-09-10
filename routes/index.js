@@ -52,4 +52,20 @@ router.get('/getVacationInformation', function(req,res,next){
       });
 });
 
+router.get('/getSignInInformation', function(req,res,next){
+    //
+    SignIn.find({})
+        .populate('Student')
+        .populate('Subject')
+        .exec(function(err,signins){
+            //
+            if(err){
+                console.error(err);
+            } else{
+                console.log(signins);
+                res.json(signins);
+            }
+        })
+});
+
 module.exports = router;
