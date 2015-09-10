@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>My Angular App!</title>
+  <script src="javascripts/angular.min.js"></script>
+  <script src="javascripts/app.js"></script>
+  <script src="javascripts/angular-ui-router.js"></script>
+  <link rel="stylesheet" href="stylesheets/style.css"/>
+</head>
+<body ng-app="studentManger" ng-controller="MainCtrl">
+<div>
+  <div style="width: 100%; height: 100%; background-color: cornsilk;">
+    <div style="width: 100%; height: 20%; background-color: yellowgreen;"></div>
+    <div style="width: 20%; height: 80%; background-color: coral; float: left;">
+      <a href="#" ng-click="gotopage1()"> page1 </a>
+      <a href="#"> page2 </a>
+    </div>
+    <div style="width: 80%; height: 80%; background-color: lightcoral; float: left;">
+      <ui-view></ui-view>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+<script type="text/ng-template" id="/ImportData.html">
+  <div class="page-header">
+    <h1>ImportData Page</h1>
+  </div>
+
+  <!-- rest of template -->
+</script>
+
+<script type="text/ng-template" id="/SignIn.html">
+  <div class="page-header">
+    <h1>SignIn Page</h1>
+  </div>
+
+  <!-- rest of template -->
+</script>
+
+<script type="text/ng-template" id="/Vacation.html">
+  <div class="page-header">
+    <h1>Vacation Page</h1>
+  </div>
+
+  <!-- rest of template -->
+</script>
+
+<script type="text/ng-template" id="/TransferCourses.html">
+  <div class="page-header">
+    <h1>TransferCourses Page</h1>
+  </div>
+
+  <!-- rest of template -->
+</script>

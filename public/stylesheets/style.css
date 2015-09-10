@@ -1,0 +1,26 @@
+body {
+  /*padding: 50px;*/
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a:link{
+  display: block;
+  background-color: #f8b9b7;
+  width: 90%;
+  height: 5vh;
+  margin-top: 10px;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  line-height: 5vh;
+  border-radius: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+a:visited{
+  color: black;
+  text-decoration: none;
+}
+a:hover{
+  background-color: greenyellow;
+}
