@@ -16,7 +16,7 @@
       <a href="#" ng-click="gotoVacation()"> 学生请假 </a>
       <a href="#" ng-click="gotoTransferCourses()"> 教师调课 </a>
     </div>
-    <div style="width: 80%; height: 80%; background-color: lightcoral; float: left;">
+    <div style="width: 75%; height: 80%; background-color: lightcoral; float: left; padding-left: 2.5%; padding-right: 2.5%;">
       <ui-view></ui-view>
     </div>
   </div>
@@ -44,17 +44,20 @@
   <div class="page-header">
     <h1>Vacation Page</h1>
   </div>
-  <div>
-    <table>
+  <div style="width: 100%;">
+    <table style="width: 100%;">
       <tr>
         <th>请假学生</th>
         <th>请假时间</th>
         <th>请假原因</th>
+        <th>申请时间</th>
+        <th></th>
       </tr>
-      <tr ng-repeat="vacation in vacations">
+      <tr ng-repeat="vacation in vacations | orderBy : 'VacationTime':true">
         <td>{{vacation.Student.Name}}</td>
-        <td>{{vacation.BeginDate | date : 'yyyy/MM/dd'}} - {{vacation.EndDate | date : 'yyyy/MM/dd'}}</td>
+        <td>{{vacation.BeginDate | date : 'yyyy/MM/dd'}}-{{vacation.EndDate | date : 'yyyy/MM/dd'}}</td>
         <td>{{vacation.Reason}}</td>
+        <td>{{vacation.VacationTime | date : 'yyyy/MM/dd hh-mm-ss'}}</td>
       </tr>
     </table>
   </div>
