@@ -18,6 +18,16 @@ app.config([
                 url: '/signIn',
                 templateUrl: '/SignIn.html',
                 controller: 'SignInCtrl'
+            })
+            .state('vacation', {
+                url: '/vacation',
+                templateUrl: '/Vacation.html',
+                controller: 'VacationCtrl'
+            })
+            .state('transferCourses', {
+                url: '/transferCourses',
+                templateUrl: '/TransferCourses.html',
+                controller: 'TransferCoursesCtrl'
             });
 
         $urlRouterProvider.otherwise('importData');
@@ -27,20 +37,55 @@ app.controller('MainCtrl', [
     '$scope',
     '$state',
     function($scope,$state){
-        console.log('465');
-        $scope.gotopage1 = function(){
-            console.log('lll');
+        //
+        $scope.gotoImportData = function(){
+            //
+            $state.go('importData');
+        };
+        $scope.gotoSignIn = function(){
+            //
             $state.go('signIn');
-        }
+        };
+        $scope.gotoVacation = function(){
+            //
+            $state.go('vacation');
+        };
+        $scope.gotoTransferCourses = function(){
+            //
+            $state.go('transferCourses');
+        };
     }])
     .controller('ImportDataCtrl', [
         '$scope',
         function($scope,$state){
-            console.log('789');
+            //
         }
     ])
     .controller('SignInCtrl', [
         '$scope',
         function($scope){
-            console.log('lala');
-        }]);
+            //
+        }
+    ])
+    .controller('VacationCtrl', [
+        '$scope',
+        '$http',
+        function($scope,$http){
+            //
+            $http.get('http://localhost:3000/getVacationInformation', {params:{}})
+                .success(function(data){
+                    //
+                    $scope.vacations = data;
+                }).error(function(err){
+                    //
+                }).then(function(){
+                    //
+                });
+        }
+    ])
+    .controller('TransferCoursesCtrl', [
+        '$scope',
+        function($scope){
+            //
+        }
+    ]);
